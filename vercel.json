@@ -6,12 +6,10 @@
   },
   "routes": [
     {
-      "comment": "1. 直接提供所有静态资源和目录",
       "src": "/(static|myjs|guide|diff|template|src)/(.*)",
       "dest": "/$1/$2"
     },
     {
-      "comment": "2. 阻止对敏感文件和目录的直接访问",
       "src": "/(config\\.php|config-sample\\.php|\\.htaccess|LICENSE|README\\.md|\\.gitignore|functions\\.php|waf\\.php|aes\\.php|rc4\\.php)",
       "status": 404
     },
@@ -20,7 +18,6 @@
       "status": 404
     },
     {
-      "comment": "3. 将公开的PHP请求路由到对应的PHP文件执行",
       "src": "/api/(.*)",
       "dest": "/api/$1"
     },
@@ -29,7 +26,6 @@
       "dest": "/$1.php"
     },
     {
-      "comment": "4. 设置网站根目录的入口文件",
       "src": "/",
       "dest": "/index.php"
     }
